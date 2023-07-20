@@ -41,9 +41,50 @@ cd E-Commerce_Web_Application
 ```
 
 2. Install the required dependencies:
-  **npm install**
-   
+   ```npm install
+   ```
 3. Set up your MongoDB database and update the connection string in config.js:
+   ```
    // Update the following with your MongoDB connection string
     const MONGODB_URI = 'mongodb://localhost:5000/your-database-name';
-5. 
+   ```
+4. Set up the Stripe Payment Gateway by adding your Stripe API keys in config.js:
+   ```
+   // Update the following with your Stripe API keys
+   const stripeSecretKey = 'your-stripe-secret-key';
+   const stripePublicKey = 'your-stripe-public-key';
+   ```
+5. Set up Nodemailer for email notifications by updating the configuration in auth.js:
+   ```
+   // Update the following with your email credentials and configurations
+    transporter.sendMail({
+          to: req.body.email,
+          from: 'your-email-address',
+          subject: 'Password reset',
+          html: `
+            <p>You requested a password reset</p>
+            <p>Click this <a href="http://localhost:5000/reset/${token}">link</a> to set a new password.</p>
+          `
+        });
+   ```
+6. Start the application:
+   ```
+   npm start
+   ```
+   
+##Screenshots
+
+![Screenshot (524)](https://github.com/Abhishek-chillal/E-Commerce_Web_Application/assets/89154589/a24a436b-0699-44e0-acec-f4ce787dca51)
+![Screenshot (523)](https://github.com/Abhishek-chillal/E-Commerce_Web_Application/assets/89154589/561c50f1-b7f5-4e25-a56b-91083a3715bf)
+![Screenshot (478)](https://github.com/Abhishek-chillal/E-Commerce_Web_Application/assets/89154589/0af6edd2-7abe-4a7e-8e7c-7d6ff6826ecd)
+![Screenshot (525)](https://github.com/Abhishek-chillal/E-Commerce_Web_Application/assets/89154589/e45223a3-691c-4e21-b18e-e7044a1cf8d5)
+
+## Contributing
+
+Contributions are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue or create a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
+
+MIT License © Abhishek Chillal
